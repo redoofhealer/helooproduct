@@ -14,15 +14,9 @@ sudo DEBIAN_FRONTEND=noninteractive apt install --assume-yes xfce4 desktop-base 
 sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'
 sudo systemctl disable lightdm.service
 sudo apt update -y
-sudo apt install curl
-sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
-sudo apt update
-sudo apt install brave-browser
 sudo apt install p7zip-full p7zip-rar -y
-setxkbmap fr
-sudo apt install neofetch
+sudo apt-get install -y engrampa
+sudo apt install neofetch -y
 echo 'Clearing cache ...'
 rm chrome-remote-desktop_current_amd64.deb
-rm alpharelease
 echo 'Magic Done!'
