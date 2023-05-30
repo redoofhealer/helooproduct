@@ -7,16 +7,21 @@ echo '
               by @Ivy
 '
 echo 'Starting our magic ...\o/'
-sudo apt update && sudo apt dist-upgrade
+sudo apt update -y && sudo apt dist-upgrade -y
 wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
 sudo apt-get install --assume-yes ./chrome-remote-desktop_current_amd64.deb
 sudo DEBIAN_FRONTEND=noninteractive apt install --assume-yes xfce4 desktop-base dbus-x11 xscreensaver
 sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome-remote-desktop-session'
 sudo systemctl disable lightdm.service
 sudo apt update -y
-sudo apt install p7zip-full p7zip-rar -y
-sudo apt-get install -y engrampa
-sudo apt install neofetch -y
+sudo apt install curl -y
+sudo apt install p7zip-full p7zip-rar engrampa -y
+sudo apt update -y && sudo apt upgrade -y
+sudo apt install wget apt-transport-https gnupg2 -y
+echo 'deb http://download.opensuse.org/repositories/home:/stevenpusser/xUbuntu_22.04/ /' | sudo tee /etc/apt/sources.list.d/home:stevenpusser.list
+curl -fsSL https://download.opensuse.org/repositories/home:stevenpusser/xUbuntu_22.04/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_stevenpusser.gpg > /dev/null
+sudo apt update && sudo apt install palemoon -y && sudo apt install neofetch && sudo apt autoclean -y && sudo apt autoremove -y
+setxkbmap fr
 echo 'Clearing cache ...'
 rm chrome-remote-desktop_current_amd64.deb
 echo 'Magic Done!'
