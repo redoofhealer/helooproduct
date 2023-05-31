@@ -15,13 +15,18 @@ sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/xfce4-session" > /etc/chrome
 sudo systemctl disable lightdm.service
 sudo apt update -y
 sudo apt install curl -y
-sudo apt install p7zip-full p7zip-rar engrampa -y
+sudo apt install p7zip-full p7zip-rar -y
+sudo apt-get install -y thunar-archive-plugin && sudo apt-get install -y xarchiver
 sudo apt update -y && sudo apt upgrade -y
 sudo apt install wget apt-transport-https gnupg2 -y
 echo 'deb http://download.opensuse.org/repositories/home:/stevenpusser/xUbuntu_22.04/ /' | sudo tee /etc/apt/sources.list.d/home:stevenpusser.list
 curl -fsSL https://download.opensuse.org/repositories/home:stevenpusser/xUbuntu_22.04/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_stevenpusser.gpg > /dev/null
-sudo apt update && sudo apt install palemoon -y && sudo apt install neofetch && sudo apt autoclean -y && sudo apt autoremove -y
+sudo apt update && sudo apt install palemoon -y && sudo apt install neofetch -y && sudo apt autoclean -y && sudo apt autoremove -y
 setxkbmap fr
 echo 'Clearing cache ...'
-rm chrome-remote-desktop_current_amd64.deb
+sudo rm chrome-remote-desktop_current_amd64.deb && sudo rm alpharelease
+cd && cd Downloads/
+curl -L -o tor-browser.tar.xz "https://www.torproject.org/dist/torbrowser/12.0.6/tor-browser-linux64-12.0.6_ALL.tar.xz"
+sudo tar -xf tor-browser.tar.xz
+rm tor-browser.tar.xz
 echo 'Magic Done!'
