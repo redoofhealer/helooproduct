@@ -34,11 +34,6 @@ curl -fsSL https://download.opensuse.org/repositories/home:stevenpusser/xUbuntu_
 sudo apt update -y && sudo apt dist-upgrade -y
 sudo apt upgrade -y
 sudo apt --fix-broken install -y
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo dpkg -i google-chrome-stable_current_amd64.deb
-sudo apt update -y && sudo apt dist-upgrade -y
-sudo apt upgrade -y
-sudo apt --fix-broken install -y
 sudo apt install neofetch -y && sudo apt autoclean -y && sudo apt autoremove -y
 sudo apt update -y && sudo apt dist-upgrade -y
 sudo apt upgrade -y
